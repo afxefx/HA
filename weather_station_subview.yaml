@@ -1,0 +1,1255 @@
+  - theme: Backend-selected
+    subview: true
+    title: Weather Station
+    path: weather-station
+    badges: []
+    cards:
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Outside Temperature
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_outdoor_temperature
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            curve: smooth
+            stroke_width: 3
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Outside Temperature
+            color_threshold:
+              - value: 0
+                color: '#C871F8'
+              - value: 20
+                color: '#444EF0'
+              - value: 32
+                color: '#679AFF'
+              - value: 41
+                color: '#67CEF0'
+              - value: 59
+                color: '#8BFFD6'
+              - value: 68
+                color: '#8ED672'
+              - value: 77
+                color: '#D6FF72'
+              - value: 86
+                color: '#FFFF80'
+              - value: 95
+                color: '#F3A466'
+              - value: 104
+                color: '#FF4040'
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Apparent Temperature
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_feels_like_temperature
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Apparent Temperature
+            color_threshold:
+              - value: 0
+                color: '#C871F8'
+              - value: 20
+                color: '#444EF0'
+              - value: 32
+                color: '#679AFF'
+              - value: 41
+                color: '#67CEF0'
+              - value: 59
+                color: '#8BFFD6'
+              - value: 68
+                color: '#8ED672'
+              - value: 77
+                color: '#D6FF72'
+              - value: 86
+                color: '#FFFF80'
+              - value: 95
+                color: '#F3A466'
+              - value: 104
+                color: '#FF4040'
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Outside Humidity
+        experimental:
+          color_threshold: true
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_humidity
+            group_by:
+              func: avg
+              duration: 5min
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Outside Humidity
+            color_threshold:
+              - color: '#3498db'
+                value: 70
+              - color: '#2fde75'
+                value: 50
+              - color: '#f39c12'
+                value: 30
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Dew Point
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_dewpoint
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Dew Point
+            color_threshold:
+              - value: 0
+                color: '#C871F8'
+              - value: 20
+                color: '#444EF0'
+              - value: 32
+                color: '#679AFF'
+              - value: 41
+                color: '#67CEF0'
+              - value: 59
+                color: '#8BFFD6'
+              - value: 68
+                color: '#8ED672'
+              - value: 77
+                color: '#D6FF72'
+              - value: 86
+                color: '#FFFF80'
+              - value: 95
+                color: '#F3A466'
+              - value: 104
+                color: '#FF4040'
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+        experimental:
+          color_threshold: false
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_indoor_temperature
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+            name: Indoor Temperature
+            color_threshold:
+              - value: 0
+                color: '#C871F8'
+              - value: 20
+                color: '#444EF0'
+              - value: 32
+                color: '#679AFF'
+              - value: 41
+                color: '#67CEF0'
+              - value: 59
+                color: '#8BFFD6'
+              - value: 68
+                color: '#8ED672'
+              - value: 77
+                color: '#D6FF72'
+              - value: 86
+                color: '#FFFF80'
+              - value: 95
+                color: '#F3A466'
+              - value: 104
+                color: '#FF4040'
+          - entity: sensor.easyweatherpro_v5_1_1_temperature_1
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+            name: Garage Temperature
+            color_threshold:
+              - value: 0
+                color: '#C871F8'
+              - value: 20
+                color: '#444EF0'
+              - value: 32
+                color: '#679AFF'
+              - value: 41
+                color: '#67CEF0'
+              - value: 59
+                color: '#8BFFD6'
+              - value: 68
+                color: '#8ED672'
+              - value: 77
+                color: '#D6FF72'
+              - value: 86
+                color: '#FFFF80'
+              - value: 95
+                color: '#F3A466'
+              - value: 104
+                color: '#FF4040'
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+        experimental:
+          color_threshold: true
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_indoor_humidity
+            group_by:
+              func: avg
+              duration: 5min
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+            name: Indoor Humidity
+            color_threshold:
+              - color: '#3498db'
+                value: 70
+              - color: '#2fde75'
+                value: 50
+              - color: '#f39c12'
+                value: 30
+          - entity: sensor.easyweatherpro_v5_1_1_humidity_1
+            group_by:
+              func: avg
+              duration: 5min
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+            name: Garage Humidity
+            color_threshold:
+              - color: '#3498db'
+                value: 70
+              - color: '#2fde75'
+                value: 50
+              - color: '#f39c12'
+                value: 30
+      - cards:
+          - type: custom:apexcharts-card
+            cache: true
+            graph_span: 12h
+            apex_config:
+              chart:
+                height: 500
+              responsive:
+                - breakpoint: 765
+                  options:
+                    chart:
+                      height: 250px
+                - breakpoint: 1025
+                  options:
+                    chart:
+                      height: 300px
+                - breakpoint: 10000
+                  options:
+                    chart:
+                      height: auto
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+              title: Relative Pressure (12hr)
+            experimental:
+              color_threshold: true
+              brush: false
+            brush:
+              selection_span: 1h
+            yaxis:
+              - decimals: 3
+            series:
+              - entity: sensor.easyweatherpro_v5_0_9_relative_pressure
+                group_by:
+                  func: avg
+                  duration: 15min
+                yaxis_id: first
+                type: line
+                float_precision: 3
+                stroke_width: 3
+                curve: smooth
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                  legend_value: false
+                  name_in_header: false
+                  in_brush: true
+                name: Relative Pressure (12h)
+                color_threshold:
+                  - value: 29.6
+                    color: red
+                  - value: 29.8
+                    color: PowderBlue
+                  - value: 30.2
+                    color: blue
+          - type: custom:apexcharts-card
+            cache: true
+            graph_span: 24h
+            apex_config:
+              chart:
+                height: 500
+              responsive:
+                - breakpoint: 765
+                  options:
+                    chart:
+                      height: 250px
+                - breakpoint: 1025
+                  options:
+                    chart:
+                      height: 300px
+                - breakpoint: 10000
+                  options:
+                    chart:
+                      height: auto
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+              title: Relative Pressure (24hr)
+            experimental:
+              color_threshold: true
+              brush: false
+            brush:
+              selection_span: 1h
+            yaxis:
+              - decimals: 3
+            series:
+              - entity: sensor.easyweatherpro_v5_0_9_relative_pressure
+                group_by:
+                  func: avg
+                  duration: 15min
+                yaxis_id: first
+                type: line
+                float_precision: 3
+                stroke_width: 3
+                curve: smooth
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                  legend_value: false
+                  name_in_header: false
+                  in_brush: true
+                name: Relative Pressure (24h)
+                color_threshold:
+                  - value: 29.6
+                    color: red
+                  - value: 29.8
+                    color: PowderBlue
+                  - value: 30.2
+                    color: blue
+          - content: >-
+              {% if
+              states("sensor.easyweatherpro_v5_0_9_relative_pressure")|float(0)
+              > 30.20 %} <b>High Pressure</b><br><br> A barometric reading over
+              30.20 inHg is generally considered high, and high pressure is
+              associated with clear skies and calm weather. <br><br> <b>If the
+              reading is over 30.20 inHg (102268.9 Pa or 1022.689 mb)&#58;</b>
+              <br><br> - Rising or steady pressure means continued fair
+              weather.<br> - Slowly falling pressure means fair weather.<br> -
+              Rapidly falling pressure means cloudy and warmer conditions.<br>{%
+              endif %} {% if
+              states("sensor.easyweatherpro_v5_0_9_relative_pressure")|float(0)
+              > 29.80 and
+              states("sensor.easyweatherpro_v5_0_9_relative_pressure")|float(0)
+              < 30.20 %}
+
+              <b>Normal Pressure</b><br><br> A barometric reading in the range
+              of 29.80 and 30.20 inHg can be considered normal, and normal
+              pressure is associated with steady weather. <br><br> <b>If the
+              reading falls between 29.80 and 30.20 inHg (100914.4–102268.9 Pa
+              or 1022.689–1009.144 mb)&#58;</b> <br><br> - Rising or steady
+              pressure means present conditions will continue.<br> - Slowly
+              falling pressure means little change in the weather.<br> - Rapidly
+              falling pressure means that rain is likely, or snow if it is cold
+              enough.<br> {% endif %}{% if
+              states("sensor.easyweatherpro_v5_0_9_relative_pressure")|float(0)
+              < 29.80 %}
+
+              <b>Low Pressure</b><br><br> A barometric reading below 29.80 inHg
+              is generally considered low, and low pressure is associated with
+              warm air and rainstorms. <br><br> <b>If the reading is under 29.80
+              inHg (100914.4 Pa or 1009.144 mb)&#58;</b> <br><br> - Rising or
+              steady pressure indicates clearing and cooler weather.<br> -
+              Slowly falling pressure indicates rain.<br> - Rapidly falling
+              pressure indicates a storm is coming.<br>{% endif %}
+            type: markdown
+            card_mod:
+              style: |
+                ha-card  {
+                  font-size: 15px;  
+                  text-shadow: 1px 1px 5px #000;
+                }
+        parameters:
+          autoHeight: true
+          keyboard:
+            enabled: true
+          grabCursor: true
+          effect: slide
+          spaceBetween: 5
+          navigation: null
+        type: custom:swipe-card
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Wind Speed (24hr)
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_wind_speed
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Wind Speed (24h)
+            color_threshold:
+              - value: 0
+                color: '#AAAAAA'
+              - value: 1
+                color: '#AEF1F9'
+              - value: 3
+                color: '#96F7DC'
+              - value: 7
+                color: '#96F7B4'
+              - value: 12
+                color: '#6FF46F'
+              - value: 18
+                color: '#73ED12'
+              - value: 24
+                color: '#A4ED12'
+              - value: 31
+                color: '#DAED12'
+              - value: 38
+                color: '#EDC212'
+              - value: 46
+                color: '#ED8F12'
+              - value: 54
+                color: '#ED6312'
+              - value: 63
+                color: '#ED2912'
+              - value: 72
+                color: '#ED2912'
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Wind Gust (24hr)
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_wind_gust
+            group_by:
+              func: avg
+              duration: 5min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Wind Gust (24h)
+            color_threshold:
+              - value: 0
+                color: '#AAAAAA'
+              - value: 1
+                color: '#AEF1F9'
+              - value: 3
+                color: '#96F7DC'
+              - value: 7
+                color: '#96F7B4'
+              - value: 12
+                color: '#6FF46F'
+              - value: 18
+                color: '#73ED12'
+              - value: 24
+                color: '#A4ED12'
+              - value: 31
+                color: '#DAED12'
+              - value: 38
+                color: '#EDC212'
+              - value: 46
+                color: '#ED8F12'
+              - value: 54
+                color: '#ED6312'
+              - value: 63
+                color: '#ED2912'
+              - value: 72
+                color: '#ED2912'
+      - type: custom:apexcharts-card
+        chart_type: scatter
+        apex_config:
+          chart:
+            height: 300
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Wind Direction (24hr)
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_wind_direction
+            name: Wind Direction (24h)
+            group_by:
+              func: avg
+              duration: 5min
+            show:
+              name_in_header: false
+        yaxis:
+          - min: 0
+            max: 360
+            apex_config:
+              tickAmount: 4
+      - cards:
+          - type: custom:windrose-card
+            title: Wind (1hr)
+            windspeed_bar_full: false
+            output_speed_unit: mph
+            max_width: 350
+            output_speed_unit_label: mph
+            hours_to_show: 1
+            speed_range_beaufort: false
+            wind_direction_entity:
+              entity: sensor.easyweatherpro_v5_0_9_wind_direction
+            windspeed_entities:
+              - entity: sensor.easyweatherpro_v5_0_9_wind_speed
+                name: Speed
+              - entity: sensor.easyweatherpro_v5_0_9_wind_gust
+                name: Gust
+            speed_ranges:
+              - from_value: 0
+                color: '#AAAAAA'
+              - from_value: 1
+                color: '#AEF1F9'
+              - from_value: 3
+                color: '#96F7DC'
+              - from_value: 7
+                color: '#96F7B4'
+              - from_value: 12
+                color: '#6FF46F'
+              - from_value: 18
+                color: '#73ED12'
+              - from_value: 24
+                color: '#A4ED12'
+              - from_value: 31
+                color: '#DAED12'
+              - from_value: 38
+                color: '#EDC212'
+              - from_value: 46
+                color: '#ED8F12'
+              - from_value: 54
+                color: '#ED6312'
+              - from_value: 63
+                color: '#ED2912'
+              - from_value: 72
+                color: '#ED2912'
+            card_mod:
+              style: |
+                #windRose {
+                  background: transparent !important;
+                }
+                ha-card {
+                  background: var(--ha-card-background) !important;
+                }
+                ha-card > div {
+                  background: transparent !important;
+                }
+          - type: custom:windrose-card
+            title: Wind (2hr)
+            windspeed_bar_full: false
+            output_speed_unit: mph
+            max_width: 350
+            output_speed_unit_label: mph
+            hours_to_show: 2
+            speed_range_beaufort: false
+            wind_direction_entity:
+              entity: sensor.easyweatherpro_v5_0_9_wind_direction
+            windspeed_entities:
+              - entity: sensor.easyweatherpro_v5_0_9_wind_speed
+                name: Speed
+              - entity: sensor.easyweatherpro_v5_0_9_wind_gust
+                name: Gust
+            speed_ranges:
+              - from_value: 0
+                color: '#AAAAAA'
+              - from_value: 1
+                color: '#AEF1F9'
+              - from_value: 3
+                color: '#96F7DC'
+              - from_value: 7
+                color: '#96F7B4'
+              - from_value: 12
+                color: '#6FF46F'
+              - from_value: 18
+                color: '#73ED12'
+              - from_value: 24
+                color: '#A4ED12'
+              - from_value: 31
+                color: '#DAED12'
+              - from_value: 38
+                color: '#EDC212'
+              - from_value: 46
+                color: '#ED8F12'
+              - from_value: 54
+                color: '#ED6312'
+              - from_value: 63
+                color: '#ED2912'
+              - from_value: 72
+                color: '#ED2912'
+            card_mod:
+              style: |
+                #windRose {
+                  background: transparent !important;
+                }
+                ha-card {
+                  background: var(--ha-card-background) !important;
+                }
+                ha-card > div {
+                  background: transparent !important;
+                }
+          - type: custom:windrose-card
+            title: Wind (4hr)
+            windspeed_bar_full: false
+            output_speed_unit: mph
+            max_width: 350
+            output_speed_unit_label: mph
+            hours_to_show: 4
+            speed_range_beaufort: false
+            wind_direction_entity:
+              entity: sensor.easyweatherpro_v5_0_9_wind_direction
+            windspeed_entities:
+              - entity: sensor.easyweatherpro_v5_0_9_wind_speed
+                name: Speed
+              - entity: sensor.easyweatherpro_v5_0_9_wind_gust
+                name: Gust
+            speed_ranges:
+              - from_value: 0
+                color: '#AAAAAA'
+              - from_value: 1
+                color: '#AEF1F9'
+              - from_value: 3
+                color: '#96F7DC'
+              - from_value: 7
+                color: '#96F7B4'
+              - from_value: 12
+                color: '#6FF46F'
+              - from_value: 18
+                color: '#73ED12'
+              - from_value: 24
+                color: '#A4ED12'
+              - from_value: 31
+                color: '#DAED12'
+              - from_value: 38
+                color: '#EDC212'
+              - from_value: 46
+                color: '#ED8F12'
+              - from_value: 54
+                color: '#ED6312'
+              - from_value: 63
+                color: '#ED2912'
+              - from_value: 72
+                color: '#ED2912'
+            card_mod:
+              style: |
+                #windRose {
+                  background: transparent !important;
+                }
+                ha-card {
+                  background: var(--ha-card-background) !important;
+                }
+                ha-card > div {
+                  background: transparent !important;
+                }
+          - type: custom:windrose-card
+            title: Wind (8hr)
+            windspeed_bar_full: false
+            output_speed_unit: mph
+            max_width: 350
+            output_speed_unit_label: mph
+            hours_to_show: 8
+            speed_range_beaufort: false
+            wind_direction_entity:
+              entity: sensor.easyweatherpro_v5_0_9_wind_direction
+            windspeed_entities:
+              - entity: sensor.easyweatherpro_v5_0_9_wind_speed
+                name: Speed
+              - entity: sensor.easyweatherpro_v5_0_9_wind_gust
+                name: Gust
+            speed_ranges:
+              - from_value: 0
+                color: '#AAAAAA'
+              - from_value: 1
+                color: '#AEF1F9'
+              - from_value: 3
+                color: '#96F7DC'
+              - from_value: 7
+                color: '#96F7B4'
+              - from_value: 12
+                color: '#6FF46F'
+              - from_value: 18
+                color: '#73ED12'
+              - from_value: 24
+                color: '#A4ED12'
+              - from_value: 31
+                color: '#DAED12'
+              - from_value: 38
+                color: '#EDC212'
+              - from_value: 46
+                color: '#ED8F12'
+              - from_value: 54
+                color: '#ED6312'
+              - from_value: 63
+                color: '#ED2912'
+              - from_value: 72
+                color: '#ED2912'
+            card_mod:
+              style: |
+                #windRose {
+                  background: transparent !important;
+                }
+                ha-card {
+                  background: var(--ha-card-background) !important;
+                }
+                ha-card > div {
+                  background: transparent !important;
+                }
+        parameters:
+          autoHeight: true
+          keyboard:
+            enabled: true
+          grabCursor: true
+          effect: slide
+          spaceBetween: 5
+          navigation: null
+        type: custom:swipe-card
+      - type: custom:apexcharts-card
+        cache: true
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        graph_span: 60min
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Rain/hr
+        experimental:
+          color_threshold: false
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_rain_rate_piezo
+            stroke_width: 1
+            color: cornflowerblue
+            float_precision: 3
+            type: column
+            group_by:
+              func: last
+              duration: 1min
+            show:
+              header_color_threshold: true
+              extremas: true
+              name_in_header: false
+            name: Rain/hr
+        yaxis:
+          - decimals: 3
+      - type: custom:apexcharts-card
+        cache: true
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        graph_span: 24hr
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Rain (24hr)
+        experimental:
+          color_threshold: false
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_hourly_rain_rate_piezo
+            float_precision: 3
+            stroke_width: 1
+            color: cornflowerblue
+            type: column
+            group_by:
+              func: last
+              duration: 60min
+            show:
+              header_color_threshold: true
+              extremas: true
+              name_in_header: false
+            name: Rain (24hr)
+        yaxis:
+          - decimals: 3
+      - type: custom:apexcharts-card
+        cache: true
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        graph_span: 7d
+        span:
+          end: day
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Rain (7d)
+        experimental:
+          color_threshold: false
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_daily_rain_rate_piezo
+            stroke_width: 1
+            color: cornflowerblue
+            float_precision: 3
+            type: column
+            group_by:
+              func: last
+              duration: 1d
+            show:
+              header_color_threshold: true
+              extremas: true
+              name_in_header: false
+            name: Rain (7d)
+        yaxis:
+          - decimals: 3
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 24h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: Solar Luminosity (24hr)
+        experimental:
+          color_threshold: true
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_solar_lux
+            group_by:
+              func: avg
+              duration: 15min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+              name_in_header: false
+            name: Solar Luminosity (24h)
+            color_threshold:
+              - value: 0
+                color: '#68C843'
+              - value: 30000
+                color: '#ffff55'
+              - value: 60000
+                color: '#ef8533'
+              - value: 90000
+                color: '#ca3324'
+              - value: 120000
+                color: '#983e65'
+              - value: 150000
+                color: '#833c4a'
+      - type: custom:apexcharts-card
+        graph_span: 24h
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+          title: UV Index (24hr)
+        experimental:
+          color_threshold: true
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_uv_index
+            type: area
+            curve: stepline
+            stroke_width: 1
+            group_by:
+              func: avg
+              duration: 15min
+            show:
+              header_color_threshold: true
+              extremas: true
+              name_in_header: false
+            name: UV Index (24hr)
+            color_threshold:
+              - value: 0
+                color: '#68C843'
+              - value: 2.5
+                color: '#ffff55'
+              - value: 5.5
+                color: '#ef8533'
+              - value: 7.5
+                color: '#ca3324'
+              - value: 10.5
+                color: '#983e65'
+              - value: 13
+                color: '#833c4a'
+            header_actions:
+              tap_action:
+                action: fire-dom-event
+                browser_mod:
+                  command: popup
+                  card:
+                    type: custom:apexcharts-card
+                    curve: stepline
+                    area: curve
+                    stroke_width: 3
+                    graph_span: 168h
+                    header:
+                      show: true
+                      show_states: true
+                      colorize_states: true
+                    experimental:
+                      color_threshold: true
+                    series:
+                      - entity: sensor.easyweatherpro_v5_0_9_uv_index
+                        type: line
+                        show:
+                          header_color_threshold: true
+                          extremas: false
+                        name: UV Index (1 Week)
+                        color_threshold:
+                          - value: 0
+                            color: '#68C843'
+                          - value: 2.5
+                            color: '#ffff55'
+                          - value: 5.5
+                            color: '#ef8533'
+                          - value: 7.5
+                            color: '#ca3324'
+                          - value: 10.5
+                            color: '#983e65'
+                          - value: 13
+                            color: '#833c4a'
+                  deviceID:
+                    - this
+                  large: false
+                  hide_header: true
+                  style:
+                    border-radius: 20px
+                  title: UV Index (1 Week)
+      - type: custom:apexcharts-card
+        cache: true
+        graph_span: 168h
+        apex_config:
+          chart:
+            height: 500
+          responsive:
+            - breakpoint: 765
+              options:
+                chart:
+                  height: 250px
+            - breakpoint: 1025
+              options:
+                chart:
+                  height: 300px
+            - breakpoint: 10000
+              options:
+                chart:
+                  height: auto
+        header:
+          show: true
+          show_states: true
+          colorize_states: true
+        experimental:
+          color_threshold: false
+          brush: false
+        brush:
+          selection_span: 6h
+          apex_config: null
+        series:
+          - entity: sensor.easyweatherpro_v5_0_9_wh90_battery
+            stroke_width: 3
+            curve: smooth
+            type: line
+            fill_raw: last
+            show:
+              header_color_threshold: true
+              extremas: true
+              in_brush: true
+              legend_value: false
+            name: WH90 Battery
+            group_by:
+              func: last
+              duration: 60min
+          - entity: sensor.easyweatherpro_v5_0_9_wh90_capacitor
+            group_by:
+              func: last
+              duration: 30min
+            yaxis_id: first
+            type: line
+            stroke_width: 3
+            curve: smooth
+            fill_raw: last
+            show:
+              header_color_threshold: true
+              extremas: true
+              legend_value: false
+            name: WH90 Capacitor
