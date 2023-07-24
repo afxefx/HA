@@ -1,0 +1,1867 @@
+cards:
+  - type: vertical-stack
+    cards:
+      - type: picture-elements
+        image: /local/gauge/aqi_blank.png
+        elements:
+          - type: custom:text-element
+            text: Good
+            style:
+              top: 80%
+              left: 6%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Moderate
+            style:
+              top: 55%
+              left: 10%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Unhealthy for</br>Sensitive</br>Groups
+            style:
+              top: 38%
+              left: 13%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: left
+          - type: custom:text-element
+            text: Unhealthy
+            style:
+              top: 5%
+              left: 5%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              transform: rotate(0deg)
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Very Unhealthy
+            style:
+              top: 5%
+              left: 50%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Hazardous
+            style:
+              top: 45%
+              left: 85%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            style:
+              top: 81%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            text: Outdoor PM Values
+          - type: state-label
+            style:
+              top: 75%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_outdoor_aqi_24h
+            title: null
+            prefix: 'AQI 24h: '
+          - type: state-label
+            style:
+              top: 87%
+              left: 65%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_outdoor_pm1_0_24h
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 92%
+              left: 65%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_outdoor_pm2_5_24h
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 65%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_outdoor_pm10_0_24h
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 87%
+              left: 35%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.purpleair_pm1
+            title: null
+            prefix: '1.0: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 34%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.purpleair_pm10
+            title: null
+            prefix: '10.0: '
+          - type: state-label
+            style:
+              top: 92%
+              left: 35%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.purpleair_pm25
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.purpleair_pm25
+                      index: 0
+                      show_state: true
+                      state_adaptive_color: false
+                  unit: null
+                  name: PM2.5 (48 Hrs)
+                  icon: mdi:water-percent
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: true
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: true
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  height: 150
+                  points_per_hour: 4
+                  hours_to_show: 48
+                  cache: true
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 30
+                      color: '#ffff55'
+                    - value: 60
+                      color: '#ef8533'
+                    - value: 90
+                      color: '#ca3324'
+                    - value: 120
+                      color: '#983e65'
+                    - value: 250
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: PM2.5 (48 Hrs)
+            title: null
+            prefix: '2.5: '
+          - type: custom:canvas-gauge-card
+            entity: sensor.purpleair_aqi
+            name: null
+            font_size: 1em
+            style:
+              top: 49%
+              left: 50%
+              width: null
+              heigth: null
+              transform: scale(1,1) translate(-50%,-50%)
+              box-shadow: none
+              background-color: transparent
+            gauge:
+              type: radial-gauge
+              title: AQI
+              width: 180
+              height: 200
+              minValue: 0
+              maxValue: 500
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '50'
+                - '100'
+                - '150'
+                - '200'
+                - '250'
+                - '300'
+                - '350'
+                - '400'
+                - '450'
+                - '500'
+              minorTicks: 5
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 50
+                  color: rgba(94, 176, 64, .85)
+                - from: 50
+                  to: 94
+                  color: rgba(249, 235, 65, .85)
+                - from: 94
+                  to: 153
+                  color: rgba(250, 156, 65, .85)
+                - from: 153
+                  to: 200
+                  color: rgba(226, 81, 64, .85)
+                - from: 200
+                  to: 300
+                  color: rgba(140, 26, 75, .75)
+                - from: 300
+                  to: 500
+                  color: rgba(115, 20, 37, .75)
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animation: true
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 0
+              valueInt: null
+      - type: custom:state-switch
+        transition: flip
+        entity: template
+        template: >-
+          {% if states('sensor.purpleair_aqi')|int(default=0) > 49 %} show {%
+          else %} hide {% endif %}
+        states:
+          show:
+            type: iframe
+            url: /local/air_quality_discussion_text_v8.html
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: white;
+                  height: 100% !important;
+                  overflow: scroll !important;
+                }
+                ha-card::-webkit-scrollbar {
+                    display: none !important;
+                  }
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: View Outdoor Air Quality 24hr Chart
+          style: |
+            :host {
+              text-shadow: 1px 1px 5px #000;
+            }
+        padding: 0
+        clickable: true
+        style:
+          ha-icon:
+            $: |
+              ha-svg-icon {
+                display: none;
+              }
+            .: |
+              ha-icon {
+                width: 0px !important;
+              }
+          .: |
+            hui-text-entity-row {
+              max-width: calc(100%)  !important;
+            }
+        entities:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: true
+            series:
+              - entity: sensor.purpleair_aqi
+                group_by:
+                  func: last
+                  duration: 5min
+                type: area
+                fill_raw: last
+                curve: smooth
+                stroke_width: 1
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                name: Air Quality (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#68C843'
+                  - value: 50
+                    color: '#ffff55'
+                  - value: 100
+                    color: '#ef8533'
+                  - value: 150
+                    color: '#ca3324'
+                  - value: 200
+                    color: '#983e65'
+                  - value: 300
+                    color: '#833c4a'
+                header_actions:
+                  tap_action:
+                    action: fire-dom-event
+                    browser_mod:
+                      command: popup
+                      card:
+                        type: custom:apexcharts-card
+                        graph_span: 168h
+                        header:
+                          show: true
+                          show_states: true
+                          colorize_states: true
+                        experimental:
+                          color_threshold: true
+                        series:
+                          - entity: sensor.purpleair_aqi
+                            type: line
+                            curve: smooth
+                            stroke_width: 1
+                            show:
+                              header_color_threshold: true
+                              extremas: false
+                            name: Air Quality (1 Week)
+                            color_threshold:
+                              - value: 0
+                                color: '#68C843'
+                              - value: 50
+                                color: '#ffff55'
+                              - value: 100
+                                color: '#ef8533'
+                              - value: 150
+                                color: '#ca3324'
+                              - value: 200
+                                color: '#983e65'
+                              - value: 300
+                                color: '#833c4a'
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: false
+            series:
+              - entity: sensor.purpleair_pm1
+                type: line
+                fill_raw: last
+                curve: smooth
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM1.0 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#68C843'
+              - entity: sensor.purpleair_pm25
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM2.5 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ffff55'
+              - entity: sensor.purpleair_pm10
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM10.0 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ef8533'
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.purpleair_aqi
+            unit: null
+            name: Air Quality (24 Hours)
+            icon: mdi:chemical-weapon
+            hour24: false
+            show:
+              fill: true
+              legend: false
+              labels: false
+              name: true
+              extrema: true
+              average: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: null
+            font_size_header: 18
+            line_width: 3
+            points_per_hour: 15
+            hours_to_show: 24
+            cache: true
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#68C843'
+              - value: 50
+                color: '#ffff55'
+              - value: 100
+                color: '#ef8533'
+              - value: 150
+                color: '#ca3324'
+              - value: 200
+                color: '#983e65'
+              - value: 300
+                color: '#833c4a'
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - sensor.purpleair_aqi
+                  unit: null
+                  name: Air Quality (1 Week)
+                  icon: mdi:chemical-weapon
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: false
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: false
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  points_per_hour: 20
+                  hours_to_show: 168
+                  cache: true
+                  height: 150
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 50
+                      color: '#ffff55'
+                    - value: 100
+                      color: '#ef8533'
+                    - value: 150
+                      color: '#ca3324'
+                    - value: 200
+                      color: '#983e65'
+                    - value: 300
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: Air Quality (1 Week)
+  - type: vertical-stack
+    cards:
+      - type: picture-elements
+        image: /local/gauge/aqi_blank.png
+        elements:
+          - type: custom:text-element
+            text: Good
+            style:
+              top: 80%
+              left: 6%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Moderate
+            style:
+              top: 55%
+              left: 10%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Unhealthy for</br>Sensitive</br>Groups
+            style:
+              top: 38%
+              left: 13%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: left
+          - type: custom:text-element
+            text: Unhealthy
+            style:
+              top: 5%
+              left: 5%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              transform: rotate(0deg)
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Very Unhealthy
+            style:
+              top: 5%
+              left: 50%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Hazardous
+            style:
+              top: 45%
+              left: 85%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            style:
+              top: 85%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            text: Living Room PM Values
+          - type: state-label
+            style:
+              top: 92%
+              left: 66%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.easyweatherpro_v5_1_1_wh45_pm2_5_co2_24h_average
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 75%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_indoor_aqi_24h
+            title: null
+            prefix: 'AQI 24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 66%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.easyweatherpro_v5_1_1_wh45_pm10_co2_24h_average
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 35%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.easyweatherpro_v5_1_1_wh45_pm10_co2
+            title: null
+            prefix: '10.0: '
+          - type: state-label
+            style:
+              top: 92%
+              left: 36%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.easyweatherpro_v5_1_1_wh45_pm2_5_co2
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.easyweatherpro_v5_1_1_wh45_pm2_5_co2
+                      index: 0
+                      show_state: true
+                      state_adaptive_color: false
+                  unit: null
+                  name: PM2.5 (48 Hrs)
+                  icon: mdi:water-percent
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: true
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: true
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  height: 150
+                  points_per_hour: 4
+                  hours_to_show: 48
+                  cache: true
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 30
+                      color: '#ffff55'
+                    - value: 60
+                      color: '#ef8533'
+                    - value: 90
+                      color: '#ca3324'
+                    - value: 120
+                      color: '#983e65'
+                    - value: 250
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: PM2.5 (48 Hrs)
+            title: null
+            prefix: '2.5: '
+          - type: custom:canvas-gauge-card
+            entity: sensor.indoor_aqi
+            name: null
+            font_size: 1em
+            style:
+              top: 49%
+              left: 50%
+              width: null
+              heigth: null
+              transform: scale(1,1) translate(-50%,-50%)
+              box-shadow: none
+              background-color: transparent
+            gauge:
+              type: radial-gauge
+              title: AQI
+              width: 180
+              height: 200
+              minValue: 0
+              maxValue: 500
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '50'
+                - '100'
+                - '150'
+                - '200'
+                - '250'
+                - '300'
+                - '350'
+                - '400'
+                - '450'
+                - '500'
+              minorTicks: 5
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 50
+                  color: rgba(94, 176, 64, .85)
+                - from: 50
+                  to: 94
+                  color: rgba(249, 235, 65, .85)
+                - from: 94
+                  to: 153
+                  color: rgba(250, 156, 65, .85)
+                - from: 153
+                  to: 200
+                  color: rgba(226, 81, 64, .85)
+                - from: 200
+                  to: 300
+                  color: rgba(140, 26, 75, .75)
+                - from: 300
+                  to: 500
+                  color: rgba(115, 20, 37, .75)
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animation: true
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 0
+              valueInt: null
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: View Living Room Air Quality 24hr Chart
+          style: |
+            :host {
+              text-shadow: 1px 1px 5px #000;
+            }
+        padding: 0
+        clickable: true
+        style:
+          ha-icon:
+            $: |
+              ha-svg-icon {
+                display: none;
+              }
+            .: |
+              ha-icon {
+                width: 0px !important;
+              }
+          .: |
+            hui-text-entity-row {
+              max-width: calc(100%)  !important;
+            }
+        entities:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: true
+            series:
+              - entity: sensor.indoor_aqi
+                group_by:
+                  func: last
+                  duration: 5min
+                type: area
+                fill_raw: last
+                curve: smooth
+                stroke_width: 1
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                name: Air Quality (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#68C843'
+                  - value: 50
+                    color: '#ffff55'
+                  - value: 100
+                    color: '#ef8533'
+                  - value: 150
+                    color: '#ca3324'
+                  - value: 200
+                    color: '#983e65'
+                  - value: 300
+                    color: '#833c4a'
+                header_actions:
+                  tap_action:
+                    action: fire-dom-event
+                    browser_mod:
+                      command: popup
+                      card:
+                        type: custom:apexcharts-card
+                        graph_span: 168h
+                        header:
+                          show: true
+                          show_states: true
+                          colorize_states: true
+                        experimental:
+                          color_threshold: true
+                        series:
+                          - entity: sensor.indoor_aqi
+                            type: line
+                            curve: smooth
+                            stroke_width: 1
+                            show:
+                              header_color_threshold: true
+                              extremas: false
+                            name: Air Quality (1 Week)
+                            color_threshold:
+                              - value: 0
+                                color: '#68C843'
+                              - value: 50
+                                color: '#ffff55'
+                              - value: 100
+                                color: '#ef8533'
+                              - value: 150
+                                color: '#ca3324'
+                              - value: 200
+                                color: '#983e65'
+                              - value: 300
+                                color: '#833c4a'
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: false
+            series:
+              - entity: sensor.easyweatherpro_v5_1_1_wh45_pm2_5_co2
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM2.5 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ffff55'
+              - entity: sensor.easyweatherpro_v5_1_1_wh45_pm10_co2
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM10.0 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ef8533'
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.indoor_aqi
+            unit: null
+            name: Air Quality (24 Hours)
+            icon: mdi:chemical-weapon
+            hour24: false
+            show:
+              fill: true
+              legend: false
+              labels: false
+              name: true
+              extrema: true
+              average: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: null
+            font_size_header: 18
+            line_width: 3
+            points_per_hour: 15
+            hours_to_show: 24
+            cache: true
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#68C843'
+              - value: 50
+                color: '#ffff55'
+              - value: 100
+                color: '#ef8533'
+              - value: 150
+                color: '#ca3324'
+              - value: 200
+                color: '#983e65'
+              - value: 300
+                color: '#833c4a'
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - sensor.indoor_aqi
+                  unit: null
+                  name: Air Quality (1 Week)
+                  icon: mdi:chemical-weapon
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: false
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: false
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  points_per_hour: 20
+                  hours_to_show: 168
+                  cache: true
+                  height: 150
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 50
+                      color: '#ffff55'
+                    - value: 100
+                      color: '#ef8533'
+                    - value: 150
+                      color: '#ca3324'
+                    - value: 200
+                      color: '#983e65'
+                    - value: 300
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: Air Quality (1 Week)
+  - type: vertical-stack
+    cards:
+      - type: picture-elements
+        image: /local/gauge/aqi_blank.png
+        elements:
+          - type: custom:text-element
+            text: Good
+            style:
+              top: 80%
+              left: 6%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Moderate
+            style:
+              top: 55%
+              left: 10%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Unhealthy for</br>Sensitive</br>Groups
+            style:
+              top: 38%
+              left: 13%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: left
+          - type: custom:text-element
+            text: Unhealthy
+            style:
+              top: 5%
+              left: 5%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              transform: rotate(0deg)
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Very Unhealthy
+            style:
+              top: 5%
+              left: 50%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Hazardous
+            style:
+              top: 45%
+              left: 85%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            style:
+              top: 90%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            text: Bedroom PM Values
+          - type: state-label
+            style:
+              top: 75%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_bedroom_aqi_24h
+            title: null
+            prefix: 'AQI 24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 66%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_bedroom_pm2_5_24h
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 36%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.master_bedroom_air_purifier_pm2_5
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.master_bedroom_air_purifier_pm2_5
+                      index: 0
+                      show_state: true
+                      state_adaptive_color: false
+                  unit: null
+                  name: PM2.5 (48 Hrs)
+                  icon: mdi:water-percent
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: true
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: true
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  height: 150
+                  points_per_hour: 4
+                  hours_to_show: 48
+                  cache: true
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 30
+                      color: '#ffff55'
+                    - value: 60
+                      color: '#ef8533'
+                    - value: 90
+                      color: '#ca3324'
+                    - value: 120
+                      color: '#983e65'
+                    - value: 250
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: PM2.5 (48 Hrs)
+            title: null
+            prefix: '2.5: '
+          - type: custom:canvas-gauge-card
+            entity: sensor.bedroom_aqi
+            name: null
+            font_size: 1em
+            style:
+              top: 49%
+              left: 50%
+              width: null
+              heigth: null
+              transform: scale(1,1) translate(-50%,-50%)
+              box-shadow: none
+              background-color: transparent
+            gauge:
+              type: radial-gauge
+              title: AQI
+              width: 180
+              height: 200
+              minValue: 0
+              maxValue: 500
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '50'
+                - '100'
+                - '150'
+                - '200'
+                - '250'
+                - '300'
+                - '350'
+                - '400'
+                - '450'
+                - '500'
+              minorTicks: 5
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 50
+                  color: rgba(94, 176, 64, .85)
+                - from: 50
+                  to: 94
+                  color: rgba(249, 235, 65, .85)
+                - from: 94
+                  to: 153
+                  color: rgba(250, 156, 65, .85)
+                - from: 153
+                  to: 200
+                  color: rgba(226, 81, 64, .85)
+                - from: 200
+                  to: 300
+                  color: rgba(140, 26, 75, .75)
+                - from: 300
+                  to: 500
+                  color: rgba(115, 20, 37, .75)
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animation: true
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 0
+              valueInt: null
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: View Bedroom Air Quality 24hr Chart
+          style: |
+            :host {
+              text-shadow: 1px 1px 5px #000;
+            }
+        padding: 0
+        clickable: true
+        style:
+          ha-icon:
+            $: |
+              ha-svg-icon {
+                display: none;
+              }
+            .: |
+              ha-icon {
+                width: 0px !important;
+              }
+          .: |
+            hui-text-entity-row {
+              max-width: calc(100%)  !important;
+            }
+        entities:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: true
+            series:
+              - entity: sensor.bedroom_aqi
+                group_by:
+                  func: last
+                  duration: 5min
+                type: area
+                fill_raw: last
+                curve: smooth
+                stroke_width: 1
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                name: Air Quality (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#68C843'
+                  - value: 50
+                    color: '#ffff55'
+                  - value: 100
+                    color: '#ef8533'
+                  - value: 150
+                    color: '#ca3324'
+                  - value: 200
+                    color: '#983e65'
+                  - value: 300
+                    color: '#833c4a'
+                header_actions:
+                  tap_action:
+                    action: fire-dom-event
+                    browser_mod:
+                      command: popup
+                      card:
+                        type: custom:apexcharts-card
+                        graph_span: 168h
+                        header:
+                          show: true
+                          show_states: true
+                          colorize_states: true
+                        experimental:
+                          color_threshold: true
+                        series:
+                          - entity: sensor.bedroom_aqi
+                            type: line
+                            curve: smooth
+                            stroke_width: 1
+                            show:
+                              header_color_threshold: true
+                              extremas: false
+                            name: Air Quality (1 Week)
+                            color_threshold:
+                              - value: 0
+                                color: '#68C843'
+                              - value: 50
+                                color: '#ffff55'
+                              - value: 100
+                                color: '#ef8533'
+                              - value: 150
+                                color: '#ca3324'
+                              - value: 200
+                                color: '#983e65'
+                              - value: 300
+                                color: '#833c4a'
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: false
+            series:
+              - entity: sensor.master_bedroom_air_purifier_pm2_5
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM2.5 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ffff55'
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.bedroom_aqi
+            unit: null
+            name: Air Quality (24 Hours)
+            icon: mdi:chemical-weapon
+            hour24: false
+            show:
+              fill: true
+              legend: false
+              labels: false
+              name: true
+              extrema: true
+              average: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: null
+            font_size_header: 18
+            line_width: 3
+            points_per_hour: 15
+            hours_to_show: 24
+            cache: true
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#68C843'
+              - value: 50
+                color: '#ffff55'
+              - value: 100
+                color: '#ef8533'
+              - value: 150
+                color: '#ca3324'
+              - value: 200
+                color: '#983e65'
+              - value: 300
+                color: '#833c4a'
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - sensor.bedroom_aqi
+                  unit: null
+                  name: Air Quality (1 Week)
+                  icon: mdi:chemical-weapon
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: false
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: false
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  points_per_hour: 20
+                  hours_to_show: 168
+                  cache: true
+                  height: 150
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 50
+                      color: '#ffff55'
+                    - value: 100
+                      color: '#ef8533'
+                    - value: 150
+                      color: '#ca3324'
+                    - value: 200
+                      color: '#983e65'
+                    - value: 300
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: Air Quality (1 Week)
+  - type: vertical-stack
+    cards:
+      - type: picture-elements
+        image: /local/gauge/aqi_blank.png
+        elements:
+          - type: custom:text-element
+            text: Good
+            style:
+              top: 80%
+              left: 6%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Moderate
+            style:
+              top: 55%
+              left: 10%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Unhealthy for</br>Sensitive</br>Groups
+            style:
+              top: 38%
+              left: 13%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: left
+          - type: custom:text-element
+            text: Unhealthy
+            style:
+              top: 5%
+              left: 5%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              transform: rotate(0deg)
+              background-color: rgba(0,0,0,.0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Very Unhealthy
+            style:
+              top: 5%
+              left: 50%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            text: Hazardous
+            style:
+              top: 45%
+              left: 85%
+              color: rgb(0,0,0)
+              font-size: 110%
+              font-weight: bold
+              background-color: rgba(0,0,0,0)
+              border-radius: 50%
+              text-align: center
+          - type: custom:text-element
+            style:
+              top: 90%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            text: Office PM Values
+          - type: state-label
+            style:
+              top: 75%
+              left: 50%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_office_aqi_24h
+            title: null
+            prefix: 'AQI 24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 66%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.average_office_pm2_5_24h
+            title: null
+            prefix: '24h: '
+          - type: state-label
+            style:
+              top: 97%
+              left: 36%
+              color: white
+              box-shadow: none
+              background-color: transparent
+            entity: sensor.office_air_purifier_pm2_5
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - entity: sensor.office_air_purifier_pm2_5
+                      index: 0
+                      show_state: true
+                      state_adaptive_color: false
+                  unit: null
+                  name: PM2.5 (48 Hrs)
+                  icon: mdi:water-percent
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: true
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: true
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  height: 150
+                  points_per_hour: 4
+                  hours_to_show: 48
+                  cache: true
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 30
+                      color: '#ffff55'
+                    - value: 60
+                      color: '#ef8533'
+                    - value: 90
+                      color: '#ca3324'
+                    - value: 120
+                      color: '#983e65'
+                    - value: 250
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: PM2.5 (48 Hrs)
+            title: null
+            prefix: '2.5: '
+          - type: custom:canvas-gauge-card
+            entity: sensor.office_aqi
+            name: null
+            font_size: 1em
+            style:
+              top: 49%
+              left: 50%
+              width: null
+              heigth: null
+              transform: scale(1,1) translate(-50%,-50%)
+              box-shadow: none
+              background-color: transparent
+            gauge:
+              type: radial-gauge
+              title: AQI
+              width: 180
+              height: 200
+              minValue: 0
+              maxValue: 500
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '50'
+                - '100'
+                - '150'
+                - '200'
+                - '250'
+                - '300'
+                - '350'
+                - '400'
+                - '450'
+                - '500'
+              minorTicks: 5
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 50
+                  color: rgba(94, 176, 64, .85)
+                - from: 50
+                  to: 94
+                  color: rgba(249, 235, 65, .85)
+                - from: 94
+                  to: 153
+                  color: rgba(250, 156, 65, .85)
+                - from: 153
+                  to: 200
+                  color: rgba(226, 81, 64, .85)
+                - from: 200
+                  to: 300
+                  color: rgba(140, 26, 75, .75)
+                - from: 300
+                  to: 500
+                  color: rgba(115, 20, 37, .75)
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animation: true
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 0
+              valueInt: null
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: View Office Air Quality 24hr Chart
+          style: |
+            :host {
+              text-shadow: 1px 1px 5px #000;
+            }
+        padding: 0
+        clickable: true
+        style:
+          ha-icon:
+            $: |
+              ha-svg-icon {
+                display: none;
+              }
+            .: |
+              ha-icon {
+                width: 0px !important;
+              }
+          .: |
+            hui-text-entity-row {
+              max-width: calc(100%)  !important;
+            }
+        entities:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: true
+            series:
+              - entity: sensor.office_aqi
+                group_by:
+                  func: last
+                  duration: 5min
+                type: area
+                fill_raw: last
+                curve: smooth
+                stroke_width: 1
+                show:
+                  header_color_threshold: true
+                  extremas: true
+                name: Air Quality (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#68C843'
+                  - value: 50
+                    color: '#ffff55'
+                  - value: 100
+                    color: '#ef8533'
+                  - value: 150
+                    color: '#ca3324'
+                  - value: 200
+                    color: '#983e65'
+                  - value: 300
+                    color: '#833c4a'
+                header_actions:
+                  tap_action:
+                    action: fire-dom-event
+                    browser_mod:
+                      command: popup
+                      card:
+                        type: custom:apexcharts-card
+                        graph_span: 168h
+                        header:
+                          show: true
+                          show_states: true
+                          colorize_states: true
+                        experimental:
+                          color_threshold: true
+                        series:
+                          - entity: sensor.office_aqi
+                            type: line
+                            curve: smooth
+                            stroke_width: 1
+                            show:
+                              header_color_threshold: true
+                              extremas: false
+                            name: Air Quality (1 Week)
+                            color_threshold:
+                              - value: 0
+                                color: '#68C843'
+                              - value: 50
+                                color: '#ffff55'
+                              - value: 100
+                                color: '#ef8533'
+                              - value: 150
+                                color: '#ca3324'
+                              - value: 200
+                                color: '#983e65'
+                              - value: 300
+                                color: '#833c4a'
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              show_states: true
+              colorize_states: true
+            experimental:
+              color_threshold: false
+            series:
+              - entity: sensor.office_air_purifier_pm2_5
+                type: line
+                curve: smooth
+                fill_raw: last
+                stroke_width: 2
+                show:
+                  header_color_threshold: true
+                  extremas: false
+                name: PM2.5 (24 Hours)
+                color_threshold:
+                  - value: 0
+                    color: '#ffff55'
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.office_aqi
+            unit: null
+            name: Air Quality (24 Hours)
+            icon: mdi:chemical-weapon
+            hour24: false
+            show:
+              fill: true
+              legend: false
+              labels: false
+              name: true
+              extrema: true
+              average: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: null
+            font_size_header: 18
+            line_width: 3
+            points_per_hour: 15
+            hours_to_show: 24
+            cache: true
+            color_thresholds_transition: hard
+            color_thresholds:
+              - value: 0
+                color: '#68C843'
+              - value: 50
+                color: '#ffff55'
+              - value: 100
+                color: '#ef8533'
+              - value: 150
+                color: '#ca3324'
+              - value: 200
+                color: '#983e65'
+              - value: 300
+                color: '#833c4a'
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                command: popup
+                card:
+                  type: custom:mini-graph-card
+                  entities:
+                    - sensor.purpleair_aqi
+                  unit: null
+                  name: Air Quality (1 Week)
+                  icon: mdi:chemical-weapon
+                  hour24: false
+                  show:
+                    fill: true
+                    legend: false
+                    labels: false
+                    name: true
+                    extrema: true
+                    average: true
+                    name_adaptive_color: true
+                    icon_adaptive_color: true
+                    show_legend: false
+                  font_size: null
+                  font_size_header: 18
+                  line_width: 3
+                  points_per_hour: 20
+                  hours_to_show: 168
+                  cache: true
+                  height: 150
+                  color_thresholds_transition: hard
+                  color_thresholds:
+                    - value: 0
+                      color: '#68C843'
+                    - value: 50
+                      color: '#ffff55'
+                    - value: 100
+                      color: '#ef8533'
+                    - value: 150
+                      color: '#ca3324'
+                    - value: 200
+                      color: '#983e65'
+                    - value: 300
+                      color: '#833c4a'
+                deviceID:
+                  - this
+                large: false
+                hide_header: true
+                style:
+                  border-radius: 20px
+                title: Air Quality (1 Week)
+parameters:
+  autoHeight: true
+  keyboard:
+    enabled: true
+  grabCursor: true
+  effect: slide
+  spaceBetween: 5
+  navigation: null
+start_card: 1
+type: custom:swipe-card
